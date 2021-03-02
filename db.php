@@ -41,7 +41,7 @@ class DB
 
     public function searchPosts($comment)
     {
-        $sql = "SELECT posts.title, comments.body FROM `posts` INNER JOIN comments WHERE comments.body LIKE :comment AND comments.id = posts.id";
+        $sql = "SELECT posts.title, comments.body FROM `posts` INNER JOIN comments WHERE comments.body LIKE :comment AND comments.postId = posts.id";
         $statement = self::$pdo->prepare($sql);
         $statement->execute(["comment" => "%" . $comment . "%",
         ]);
